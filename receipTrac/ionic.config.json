@@ -1,5 +1,7 @@
 {
   "name": "receiptrac",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
