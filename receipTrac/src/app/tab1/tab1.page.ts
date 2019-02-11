@@ -10,7 +10,7 @@ export class Tab1Page {
   
   constructor(private camera: CameraService){}
 
-  takePhoto(camera){
+  takePicture(camera){
     this.camera.takePicture();
   }
 
