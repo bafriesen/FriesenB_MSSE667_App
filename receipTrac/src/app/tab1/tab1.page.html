@@ -6,14 +6,28 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
+
+
   <h1>Add Receipts</h1>
+
   <ion-item>
     <ion-input placeholder="Enter receipt description" type="text" position="stacked"></ion-input>
   </ion-item>
+
   <ion-item>
     <ion-input placeholder="Enter total" type="number" position="stacked"></ion-input>
   </ion-item>
-  <img>
-  <ion-button (click)="takePicture()" color="primary">Take a Photo</ion-button><br /><br/>
-  <ion-button (click)="saveReceipt()" color="success">Save</ion-button>
+  
+  
+  <ion-button full (click)="takePicture()" color="primary">Take a Picture</ion-button><br /><br>
+
+  <ion-card class="block">
+    <ion-icon name="trash" class="deleteIcon" (click)="deletePhoto(id)"></ion-icon>
+    <img src="{{ base64Image }}" alt="" class="image_container" />
+  </ion-card>
+  
+
+  <!--ion-img [src]="photo"></ion-img-->
+    
+  <ion-button full (click)="saveReceipt()" color="success">Save</ion-button>
 </ion-content>
