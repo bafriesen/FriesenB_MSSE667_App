@@ -11,7 +11,7 @@ export class CameraService {
 
   constructor(private camera: Camera) { }
 
-  takePicture() {
+  public takePicture(): Promise<void> {
     const options: CameraOptions = {
       quality: 100, // picture quality
       targetWidth: 300,
@@ -21,7 +21,7 @@ export class CameraService {
       mediaType: this.camera.MediaType.PICTURE
     }
     
-    this.camera.getPicture(options).then((imageData) => {
+    return this.camera.getPicture(options).then((imageData) => {
       this.base64Image = "data:image/jpeg;base64," + imageData;
       //this.photos.push(this.base64Image);
       //this.photos.reverse();
