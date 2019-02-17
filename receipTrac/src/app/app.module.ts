@@ -36,6 +36,6 @@ import { RegisterComponent } from './components/register/register.component';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, ReceiptsComponent, DashboardComponent, EditReceiptComponent, AddReceiptComponent, LoginComponent, RegisterComponent]
 })
 export class AppModule {}
