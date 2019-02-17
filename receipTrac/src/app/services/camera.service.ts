@@ -1,17 +1,37 @@
 import { Injectable } from '@angular/core';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Component } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { IonicPage, NavController, NavParams } from '@ionic/angular';
+import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
+//import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CameraService {
   
-  public photos: any;
-  public base64Image: string;
+  image: SafeResourceUrl;
 
-  constructor(private camera: Camera) { }
+  constructor(private camera: Camera, public navCtrl: NavController, public navParams: NavParams, private zone: NgZone, private sanitizer: DomSanitizer) { }
 
-  public takePicture(): Promise<void> {
+  //Capacitor camera
+  async takePicture() {
+    const { Camera } = Plugins;
+
+    const image = await Camera.getPhoto({
+      quality: 100,
+      allowEditing: true,
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Camera
+    });
+
+    // Example of using the Base64 return type. It's recommended to use CameraResultType.Uri
+    // instead for performance reasons when showing large, or a large amount of images.
+    this.image = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.base64Data));
+  }
+
+  //Cordova Camera
+  /*public takePicture(): Promise<void> {
     const options: CameraOptions = {
       quality: 100, // picture quality
       targetWidth: 300,
@@ -27,7 +47,6 @@ export class CameraService {
       //this.photos.reverse();
     }, (err) => {
       console.log(err);
-    })
+    })*/
 
-  }
 }

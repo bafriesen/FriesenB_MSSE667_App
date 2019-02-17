@@ -1,0 +1,6 @@
+{
+  "appId": "com.swingsetimagination.app",
+  "appName": "receipTrac",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}
