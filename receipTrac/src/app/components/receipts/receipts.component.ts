@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ReceiptService } from '../../services/receipt.service';
+import { Receipt } from '../../models/Receipt';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-receipts',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./receipts.component.scss']
 })
 export class ReceiptsComponent implements OnInit {
-
-  constructor() { }
+  receipts: Receipt[];
+  
+  constructor(private receiptService: ReceiptService) { }
 
   ngOnInit() {
+    this.receiptService.getReceipts().subscribe(receipts =>
+       console.log(receipts));
   }
 
 }
