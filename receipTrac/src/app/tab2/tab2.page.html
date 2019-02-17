@@ -1,5 +1,27 @@
-<app-receipts></app-receipts>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Current Receipts
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
   
+      <ion-col  *ngFor="let photo of photos; let id = index" size="auto" >
+        <ion-card class="block">
+        <ion-icon  name="trash" class="deleteIcon"></ion-icon>
+        <ion-img [src]="base64Image"></ion-img>
+        <ion-card-header>
+          <ion-card-title>{{ item.description }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-title>{{ item.total }}</ion-card-title>
+        </ion-card-content>
+        </ion-card>
+      </ion-col>
+  
+</ion-content>
 <!--
 
 <ion-header>
