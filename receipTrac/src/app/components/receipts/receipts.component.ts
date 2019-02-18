@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReceiptService } from '../../services/receipt.service';
 import { Receipt } from '../../models/Receipt';
-import { Observable } from 'rxjs';
+//import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-receipts',
@@ -15,7 +15,8 @@ export class ReceiptsComponent implements OnInit {
 
   ngOnInit() {
     this.receiptService.getReceipts().subscribe(receipts =>
-       console.log(receipts));
+      console.log(this.receipts)
+    )
   }
 
 }

@@ -10,7 +10,9 @@ import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
 export class Tab1Page {
   
 
-  constructor(private camera: CameraService){}
+  constructor(private camera: CameraService){
+    
+  }
 
   ngOnInit() {
     
@@ -20,9 +22,5 @@ export class Tab1Page {
   takePicture(camera){
     this.camera.takePicture();
   }
-
-  //Service that combines UI elements into 
-  saveReceipt(){
-    console.log('Saved your receipt');
-  }
+  
 }

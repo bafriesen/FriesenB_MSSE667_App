@@ -7,22 +7,18 @@
 </ion-header>
 <ion-content padding>
 
-
   <h1>Add Receipts</h1>
+  <form #form="ngForm" (ngSubmit)="logForm(form)" novalidate>
+      <ion-item>
+        <ion-input type="text" required [(ngModel)]="receipt.description" ngControl="description" placeholder="Enter receipt description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="receipt.total" ngControl="total" placeholder="Enter total"></ion-input>
+      </ion-item>
+      <ion-button (click)="takePicture()" color="success">Take Picture</ion-button><br /><br/>
+      <img [src]="this.base64Image" />
+      <br /><br/> 
+      <ion-button full (click)="addReceipt()" type="submit" block>Add Receipt</ion-button>
+    </form>
 
-  <ion-item>
-    <ion-input placeholder="Enter receipt description" type="text" position="stacked"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-input placeholder="Enter total" type="number" position="stacked"></ion-input>
-  </ion-item>
- 
-
-  <img [src]="image" />
-  <button (click)="takePicture()" ion-button color="primary">Take Picture</button>
-  
-
-    
-  <ion-button full (click)="saveReceipt()" color="success">Save</ion-button>
 </ion-content>
