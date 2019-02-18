@@ -14,9 +14,11 @@ export class ReceiptsComponent implements OnInit {
   constructor(private receiptService: ReceiptService) { }
 
   ngOnInit() {
-    this.receiptService.getReceipts().subscribe(receipts =>
+    this.receiptService.getReceipts().subscribe(receipts => {
+      let description = this.receiptService.getReceipts()
+    
       console.log(this.receipts)
-    )
+    })
   }
 
 }
